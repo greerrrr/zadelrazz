@@ -8,7 +8,7 @@ logger.remove(logger.transports.Console);
 logger.add(logger.transports.Console, {
     colorize: true
 });
-logger.level = 'debug';
+logger.level = 'info';
 
 class RPGList {
     constructor(title, channelID) {
@@ -44,7 +44,6 @@ class RPGList {
             printable += humnum+". "+this.entries[entrynum].text+"\n";
         };
 	printable += "Authors: "+this.authors+"\n";
-	printable += "AuthorIDs: "+this.authorIDs+"\n";
         return printable;
     }
 
