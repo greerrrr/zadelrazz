@@ -171,13 +171,14 @@ class Zadelrazz {
         if (this.listeningForListItems[channelID] && channelID in activeLists) {
             let entrytext = message.substring(message.indexOf(".")+1);
             entrytext = entrytext.trim();
-            bot.addReaction({
-                channelID: channelID,
-                messageID: evt.d.id,
-                reaction: "🤖"
-            }, (err,res) => {
-                if (err) logger.info(err)
-            });
+	    //Now that zadelrazz is much more reliable
+            //bot.addReaction({
+            //    channelID: channelID,
+            //    messageID: evt.d.id,
+            //    reaction: "🤖"
+            //}, (err,res) => {
+            //    if (err) logger.info(err)
+            //});
             logger.info(channelID+":"+activeLists[channelID].title+" adding entry:");
 	    logger.info(entrytext);
 	    logger.debug("By "+userID+":"+user);
@@ -270,8 +271,10 @@ bot.on('message', function (user, userID, channelID, message, evt) {
                 zd.sendHelpText(channelID);
                 break;
             default:
-                bot.sendMessage({ to: channelID, message: 'Unknown command.' });
-                zd.sendHelpText();
+		break;
+		//Unknown command is not a helpful response
+                //bot.sendMessage({ to: channelID, message: 'Unknown command.' });
+                //zd.sendHelpText();
         }
     }
 
