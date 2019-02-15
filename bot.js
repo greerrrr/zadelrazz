@@ -142,10 +142,8 @@ class Zadelrazz {
         );
     }
     newList(channelID, title) {
-        // If this channel already has a list open, close it
-        if (titles[channelID]) {
-            this.endActiveList(channelID)
-        }
+	//Close the active list, if any
+        this.endActiveList(channelID)
         // Then, bombs away!
         this.listeningForListItems[channelID] = true
         titles[channelID] = title;
@@ -191,15 +189,28 @@ class Zadelrazz {
         }
     }
     endActiveList(channelID) {
-        this.bot.sendMessage({
-            to: channelID,
-            message: activeLists[channelID].printable
-        });
-        activeLists[channelID].save();
-        delete activeLists[channelID];
-        delete titles[channelID];
-        this.writeTitlesToJSON(titles);
-        this.listeningForListItems[channelID] = false;
+        logger.debug(channelID+": Attempting to end active list");
+	//If there is an active list,
+        if (titles[channelID]) {
+	    //Print the list
+            this.bot.sendMessage({
+                to: channelID,
+                message: activeLists[channelID].printable
+            });
+	    //Save the list
+            activeLists[channelID].save();
+	    //Remove it from active
+            delete activeLists[channelID];
+	    //Remove it from list of titles
+            delete titles[channelID];
+	    //Update the json list of titles
+            this.writeTitlesToJSON(titles);
+	    //Mark this channel as not listening for items
+            this.listeningForListItems[channelID] = false;
+            logger.debug(channelID+": List closed");
+        } else {
+            logger.debug(channelID+": No active list");
+	}
     }
     sendHelpText(channelID) {
         bot.sendMessage({
