@@ -1,7 +1,7 @@
 <img src="https://images2.imgbox.com/a1/c2/pGy6ICJI_o.jpg" alt="alt text" width="300">
 
 # Zadelrazz
-Zadelrazz is a discord bot for making lists. Tell him when you are starting a new lists, and he will automatically save each new numbered entry. Finally, tell him when you're done and he'll spit out the whole thing.
+Zadelrazz is a discord bot for making lists. Tell him when you are starting a new lists, and he will automatically save each new numbered entry. Finally, tell him when you're done and he'll spit out the whole thing, well formatted and numbered along with a list of authors.
 
 # Commands
 !new [NAME] : Start listening for entries to table NAME.
