@@ -16,27 +16,6 @@ Zadelrazz is a discord bot for making lists. Tell him when you are starting a ne
 
 See !help for an up-to-date list of commands and options.
 
-# Todo
-
-## High priority
-* record server of origin and entry authors
-* better folder names (maybe just a file in the folder with the name of the server/channel?)
-* flagging system for moderation
-
-## Low priority
-* roll on saved lists
-* search saved lists
-* output compiled lists to an additional specified channel
-* host online somewhere
-* make publicly invitable
-* switch to [eris](https://github.com/abalabahaha/eris)
-* Search saved list contents
-* Allow for list switching in a single channel
-* output to HTML, static pages or as wiki (or as tiddlywiki???)
-* Have lists refer to other lists
-* sort lists by server
-
-
 # Prerequisites
 
 * Must have installed Node JS
